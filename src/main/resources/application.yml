@@ -1,5 +1,53 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 441326411174-u3ihk74lm4nr3itte54t9j89rugiuiht.apps.googleusercontent.com
+            client-secret: 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
+
+---
+spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/boat
     username: boat
     password: boat01
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+---
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: wogns1733@gmail.com
+    password: wdwicnydqdneufem
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+boat:
+  api: /api/v1
